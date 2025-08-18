@@ -23,25 +23,6 @@ A simple **Banking System Project** built to demonstrate fundamental concepts of
 
 ---
 
-## 🚀 Installation & Setup
-1. Clone this repository  
-   ```bash
-   git clone https://github.com/kush424/Banking-System.git
-   cd Banking-System
-   ```
-
-2. Compile the program (if in C++):  
-   ```bash
-   g++ main.cpp -o banking
-   ```
-
-3. Run the executable:  
-   ```bash
-   ./banking
-   ```
-
----
-
 ## 📖 Usage
 - Upon running, a simple menu-driven interface will appear.  
 - Follow the on-screen instructions to select an operation (create account, deposit, withdraw, check balance, etc.).  
@@ -52,16 +33,6 @@ _Example Flow:_
 2. Deposit some money.  
 3. Withdraw a smaller amount.  
 4. Check balance to confirm.  
-
----
-
-## 📂 Project Structure
-```
-Banking-System/
-├── main.cpp       # Main program file
-├── account.dat    # (Generated file for account records)
-└── README.md      # Project documentation
-```
 
 ---
 
