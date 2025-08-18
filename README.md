@@ -1,59 +1,147 @@
 
-# 🏦 Banking System
+# 🏦 Banking System (C++ | OOP | In‑Memory)
 
-A simple **Banking System Project** built to demonstrate fundamental concepts of Object-Oriented Programming (OOP), file handling, and account management. This project allows users to create and manage bank accounts with basic operations like deposits, withdrawals, balance checks, and more.  
+![C++](https://img.shields.io/badge/C%2B%2B-17%2B-00599C?logo=c%2B%2B&logoColor=white)
+![Paradigm](https://img.shields.io/badge/Paradigm-OOP-blueviolet)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-orange)
+![Status](https://img.shields.io/badge/Status-Learning%2FDemo-brightgreen)
+
+A clean, menu-driven console app demonstrating core OOP with polymorphism and inheritance in C++. It supports Savings, Checking (with overdraft), and Fixed Deposit accounts, interest calculation, deposits/withdrawals, and account info display. Data is stored in memory (no files/DB).
 
 ---
 
 ## ✨ Features
-- ➕ Create a new bank account  
-- 💵 Deposit money  
-- 💰 Withdraw funds  
-- 📊 Check balance  
-- 📝 View account details  
-- 🗑️ Close an account  
-- 📂 Persistent data storage using file handling (accounts are saved for later use)  
+
+- Create accounts
+  - SavingAccount with interest rate
+  - CheckingAccount with overdraft limit
+  - FixedDepositAccount with term (months) and interest rate
+- Deposit and withdraw (Checking supports overdraft up to limit)
+- Display all accounts
+- Calculate interest per account type
+- Show current balance
+- Clean shutdown and memory cleanup
 
 ---
 
-## 🛠️ Tech Stack
-- **Language:** C++ (or whichever language your repo implements — update accordingly)  
-- **Paradigm:** Object-Oriented Programming  
-- **File Handling:** For saving and retrieving account data  
+## 🧠 OOP Concepts in This Project
+
+- Inheritance: SavingAccount, CheckingAccount, and FixedDepositAccount derive from BankAccount
+- Polymorphism: Virtual functions (withdraw, calculateInterest, displayAccountInfo) enable runtime dispatch via BankAccount pointers
+- Encapsulation: Account data and operations are bundled within classes
+- Virtual destructor: Ensures proper cleanup when deleting through base pointers
 
 ---
 
-## 📖 Usage
-- Upon running, a simple menu-driven interface will appear.  
-- Follow the on-screen instructions to select an operation (create account, deposit, withdraw, check balance, etc.).  
-- All account details are stored in a file and retrieved across sessions.  
+## 📦 Class Overview
 
-_Example Flow:_  
-1. Create an account.  
-2. Deposit some money.  
-3. Withdraw a smaller amount.  
-4. Check balance to confirm.  
+- BankAccount (base)
+  - Data: accountNumber, accountHolderName, balance
+  - Methods: createAccount, deposit, withdraw, getBalance, displayAccountInfo, calculateInterest, getAccountNumber
+- SavingAccount (derived)
+  - Data: interestRate (default 5%)
+  - Overrides: calculateInterest adds balance * (rate/100)
+- CheckingAccount (derived)
+  - Data: overdraftLimit (default 5000)
+  - Overrides: withdraw allows amount <= balance + overdraftLimit
+- FixedDepositAccount (derived)
+  - Data: term (months), interestRate (default 12 months, 6%)
+  - Overrides: calculateInterest adds balance * (rate/100) * (term/12.0)
 
 ---
 
-## 🤝 Contribution
-Contributions, issues, and suggestions are welcome!  
-- Fork the repository 🍴  
-- Create your feature branch 🌱  
-- Commit your changes 💡  
-- Open a Pull Request 🚀  
+## 🖥️ Demo (Menu)
+
+```
+=== BANKING SYSTEM MENU ===
+1. Create Saving Account
+2. Create Checking Account
+3. Create Fixed Deposit Account
+4. Deposit
+5. Withdraw
+6. Display All Accounts
+7. Calculate Interest
+8. Display Balance
+9. Exit
+```
+
+Example flow:
+- Create a Saving account → Deposit → Calculate Interest → Display Balance
+
+---
+
+## 🚀 Build & Run
+
+1) Clone
+```bash
+git clone https://github.com/kush424/Banking-System.git
+cd Banking-System
+
+```
+
+## 🔢 Important Details
+
+- Storage: In-memory only (BankAccount* accounts[100]) — data is lost after exit
+- Capacity: Max 100 accounts
+- Name input: Uses cin >> name; spaces in names aren’t supported (use single word or modify to getline)
+- Validations:
+  - Deposit must be > 0
+  - Withdraw must be > 0 and within balance (or balance + overdraft for Checking)
+  - Interest adds directly to balance (compounded once per call)
+
+---
+
+## ⚠️ Limitations
+
+- No persistent storage (files/DB) — all data is cleared on exit
+- No uniqueness check for account numbers
+- Basic input handling (no robust validation for non-numeric input)
+- Fixed-size array; manual memory management
+
+---
+
+## 🛠️ Nice-to-Have Improvements
+
+- Use std::vector<std::unique_ptr<BankAccount>> instead of raw pointers/arrays
+- Support names with spaces using std::getline
+- Add persistence (e.g., save/load to a file or simple DB)
+- Enforce unique account numbers and add search utilities
+- Add transaction history and transfers between accounts
+- Better input validation and error handling
+
+---
+
+## 📁 Project Structure
+
+```
+.
+├── main.cpp      # Full source (menu + classes)
+└── README.md
+```
+
+---
+
+## 🤝 Contributing
+
+- Fork the repo 
+- Create a feature branch
+- Commit with clear messages
+- Open a Pull Request
+
+Ideas and issues welcome!
 
 ---
 
 ## 📜 License
-This project is open-source and available under the **MIT License**.  
+
+Add a LICENSE file (MIT recommended). Update this section if you choose a different license.
 
 ---
 
-## 👨‍💻 Author
-Made with ❤️ by [Kush](https://github.com/kush424)  
+## 👤 Author
 
----
+Made with ❤️ by [Kush](https://github.com/kush424)
+
 
 ---
 
