@@ -55,9 +55,7 @@ Made with ❤️ by [Kush](https://github.com/kush424)
 
 ---
 
-This strikes a balance between clarity, professionalism, and friendliness.  
-
-Do you want me to tailor this README more towards **academic projects** (e.g., highlighting OOP concepts for assignments) or keep it more **developer-friendly** for general GitHub users?
+---
 
 <img width="583" height="368" alt="image" src="https://github.com/user-attachments/assets/501bb922-50ed-4ad8-b0b0-68d86ba6bff3" />
 <img width="559" height="358" alt="image" src="https://github.com/user-attachments/assets/de643f9a-17ae-44af-a6a7-c91731bd07e1" />
